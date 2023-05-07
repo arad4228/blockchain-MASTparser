@@ -1,0 +1,7 @@
+# .dat To .Json Data
+result
+result/*
+
+# virtual Env
+venv
+venv/*
