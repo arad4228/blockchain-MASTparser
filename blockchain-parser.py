@@ -53,12 +53,10 @@ def read_varint(file):
         data = b + data
     return data
 
-dirA = './blocks/' # Directory where blk*.dat files are stored
-#dirA = sys.argv[1]
-dirB = './result/' # Directory where to save parsing results
-#dirA = sys.argv[2]
+dirBlock = 'D:/BitCoinCore_Data/testnet3/blocks/'  # Directory where blk*.dat files are stored
+dirResult = './result/'  # Directory where to save parsing results
 
-fList = os.listdir(dirA)
+fList = os.listdir(dirBlock)
 fList = [x for x in fList if (x.endswith('.dat') and x.startswith('blk'))]
 fList.sort()
 
@@ -67,7 +65,7 @@ for i in fList:
     nameRes = nameSrc.replace('.dat','.txt')
     resList = []
     a = 0
-    t = dirA + nameSrc
+    t = dirBlock + nameSrc
     resList.append('Start ' + t + ' in ' + str(datetime.datetime.now()))
     print ('Start ' + t + ' in ' + str(datetime.datetime.now()))
     f = open(t,'rb')
@@ -247,7 +245,7 @@ for i in fList:
         if tmpHex != MerkleRoot:
             print ('Merkle roots does not match! >',MerkleRoot,tmpHex)
     f.close()
-    f = open(dirB + nameRes,'w')
+    f = open(dirResult + nameRes,'w')
     for j in resList:
         f.write(j + '\n')
     f.close()
