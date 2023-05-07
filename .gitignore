@@ -5,3 +5,7 @@ result/*
 # virtual Env
 venv
 venv/*
+
+# PyCham File
+.idea
+.idea/*
